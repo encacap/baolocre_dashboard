@@ -5,10 +5,10 @@ module.exports = {
     theme: {
         extend: {
             fontFamily: {
-                sans: ["Open Sans", ...defaultTheme.fontFamily.sans],
+                "plex-sans": ["IBM Plex Sans", ...defaultTheme.fontFamily.sans],
             },
             fontSize: {
-                base: "0.95rem",
+                base: "1rem",
             },
         },
     },
