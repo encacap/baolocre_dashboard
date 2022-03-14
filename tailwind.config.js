@@ -7,8 +7,12 @@ module.exports = {
             fontFamily: {
                 "plex-sans": ["IBM Plex Sans", ...defaultTheme.fontFamily.sans],
             },
-            fontSize: {
-                base: "1rem",
+            colors: {
+                encacap: {
+                    300: "#C0FCF7",
+                    500: "#0CD4CC",
+                    700: "#009C96",
+                },
             },
         },
     },
