@@ -5,7 +5,7 @@ module.exports = {
     theme: {
         extend: {
             fontFamily: {
-                "plex-sans": ["IBM Plex Sans", ...defaultTheme.fontFamily.sans],
+                nunito: ["Nunito", ...defaultTheme.fontFamily.sans],
             },
             colors: {
                 encacap: {
