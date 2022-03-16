@@ -2,6 +2,34 @@
 @tailwind components;
 @tailwind utilities;
 
+@import "react-toastify/dist/ReactToastify.css";
+
 * {
     @apply font-plex-sans;
+}
+
+.Toastify {
+    &__toast {
+        @apply p-0 border-2 border-gray-100 rounded-lg overflow-visible shadow-lg bg-white shadow-gray-100;
+
+        &-container {
+            @apply w-auto;
+
+            &--top-right {
+                @apply top-0 right-0 p-4;
+            }
+        }
+
+        &-body {
+            @apply p-0;
+        }
+    }
+
+    &__close-button {
+        @apply hidden;
+    }
+
+    &__progress-bar {
+        @apply invisible;
+    }
 }
