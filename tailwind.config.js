@@ -5,7 +5,7 @@ module.exports = {
     theme: {
         extend: {
             fontFamily: {
-                mulish: ["Mulish", ...defaultTheme.fontFamily.sans],
+                nunito: ["Nunito", ...defaultTheme.fontFamily.sans],
             },
             colors: {
                 encacap: {
