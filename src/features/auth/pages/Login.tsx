@@ -1,8 +1,13 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import encacap_logo from "../../../assets/images/encacap_logo.svg";
 import { setDocumentTitle } from "../../../common/helpers";
+import Button from "../../../components/Button";
+import Input from "../../../components/Input";
 
 const Login = () => {
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+
     useEffect(() => {
         setDocumentTitle("Login");
     }, []);
@@ -15,6 +20,27 @@ const Login = () => {
                     <div className="text-2xl font-semibold">Hi. Welcome back!</div>
                     <div className="mt-1">Login with your Encacap account.</div>
                 </div>
+                <form className="mt-12">
+                    <Input
+                        type="email"
+                        label="Username or Email"
+                        className="block"
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)}
+                    />
+                    <Input
+                        type="password"
+                        label="Password"
+                        className="block mt-4"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                    />
+                    <div className="mt-4">
+                        <Button type="submit" className="w-full">
+                            Login
+                        </Button>
+                    </div>
+                </form>
             </div>
         </div>
     );
