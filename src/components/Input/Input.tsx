@@ -1,8 +1,8 @@
 import TextInput from "./TextInput";
 
 interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
-    label: string;
-    type: string;
+    label: React.ReactText;
+    type: React.InputHTMLAttributes<HTMLInputElement>["type"];
     error?: string;
     inlineError?: boolean;
 }
@@ -10,7 +10,7 @@ interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
 const Input = ({ type, ...otherProps }: InputProps) => {
     const textInputTypes = ["text", "email", "password"];
 
-    return <>{textInputTypes.includes(type) && <TextInput type={type} {...otherProps} />}</>;
+    return <>{textInputTypes.includes(type as string) && <TextInput type={type} {...otherProps} />}</>;
 };
 
 export default Input;

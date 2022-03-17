@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { twMerge } from "tailwind-merge";
 
 interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
-    label?: string;
+    label?: React.ReactText;
     error?: string;
     inlineError?: boolean;
 }
