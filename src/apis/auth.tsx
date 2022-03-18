@@ -9,7 +9,7 @@ const loginWithEmailAndPassword = async (email: string, password: string) => {
                 password,
             },
             {
-                autoRefreshToken: true,
+                autoRefreshToken: false,
                 notRedirectWhenError: true,
             }
         );
