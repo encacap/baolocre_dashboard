@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { authAPI } from "../../../apis";
 import encacap_logo from "../../../assets/images/encacap_logo.svg";
 import { setDocumentTitle } from "../../../common/helpers";
 import Button from "../../../components/Button";
@@ -12,6 +13,18 @@ const Login = () => {
         setDocumentTitle("Login");
     }, []);
 
+    const handleLogin = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        authAPI
+            .loginWithEmailAndPassword(username, password)
+            .then((data) => {
+                console.log(data);
+            })
+            .catch((error) => {
+                console.log({ error });
+            });
+    };
+
     return (
         <div className="w-full max-w-lg p-12 m-auto border-2 border-gray-100 rounded-3xl">
             <div>
@@ -20,7 +33,7 @@ const Login = () => {
                     <div className="text-2xl font-semibold">Hi. Welcome back!</div>
                     <div className="mt-1">Login with your Encacap account.</div>
                 </div>
-                <form className="mt-12">
+                <form className="mt-12" onSubmit={handleLogin}>
                     <Input
                         type="email"
                         label="Username or Email"
