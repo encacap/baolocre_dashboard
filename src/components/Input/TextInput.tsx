@@ -45,7 +45,7 @@ const TextInput = ({
                     "relative inline-block p-4 text-left border-2 rounded-xl border-gray-100 overflow-hidden",
                     className,
                     isFocussing && "border-blue-300 ring-2 ring-blue-500 ring-offset-2",
-                    error && "border-red-500 ring-red-500"
+                    error && "border-red-300 ring-red-500"
                 )}
             >
                 <div
