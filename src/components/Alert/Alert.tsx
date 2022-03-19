@@ -38,7 +38,7 @@ const Alert = ({
                         <span className="break-words">{messageStack}</span>
                     </div>
                 )}
-                <div className="mt-1.5 text-sm font-semibold">{children}</div>
+                <div className="mt-2.5 text-sm font-semibold">{children}</div>
             </div>
         </div>
     );
