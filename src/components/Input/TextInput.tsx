@@ -1,6 +1,6 @@
 import { Danger } from "iconsax-react";
 import _ from "lodash";
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { twMerge } from "tailwind-merge";
 
 interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
@@ -17,11 +17,13 @@ const TextInput = ({
     value,
     error,
     inlineError,
+    disabled,
     onFocus,
     onBlur,
     ...otherProps
 }: InputProps) => {
     const [isFocussing, setIsFocussing] = useState(false);
+    const inputRef = useRef<HTMLInputElement>(null);
 
     const handleFocusInput = (e: React.FocusEvent<HTMLInputElement, Element>) => {
         setIsFocussing(true);
@@ -36,6 +38,12 @@ const TextInput = ({
             onBlur(e);
         }
     };
+
+    useEffect(() => {
+        if (disabled) {
+            setIsFocussing(false);
+        }
+    }, [disabled]);
 
     return (
         <>
@@ -66,8 +74,10 @@ const TextInput = ({
                         isFocussing || value ? "translate-y-2.5 opacity-100" : "opacity-0"
                     )}
                     value={value}
+                    ref={inputRef}
                     onFocus={handleFocusInput}
                     onBlur={handleBlurInput}
+                    disabled={disabled}
                     {...otherProps}
                 />
             </label>
