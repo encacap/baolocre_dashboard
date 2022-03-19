@@ -23,7 +23,7 @@ const Button = ({ className, color = "primary", icon, isLoading = false, childre
     return (
         <button
             className={twMerge(
-                "px-4 py-2 font-semibold border-2 rounded-xl duration-100 shadow-md shadow-gray-200",
+                "px-4 py-2 font-semibold border-2 rounded-xl duration-100",
                 colorClassName[color],
                 className,
                 "flex items-center justify-center"
