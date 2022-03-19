@@ -62,7 +62,7 @@ const TextInput = ({
                 <input
                     type={type}
                     className={twMerge(
-                        "relative block w-full outline-none duration-100",
+                        "relative block w-full outline-none duration-100 disabled:bg-inherit mb-px",
                         isFocussing || value ? "translate-y-2.5 opacity-100" : "opacity-0"
                     )}
                     value={value}
