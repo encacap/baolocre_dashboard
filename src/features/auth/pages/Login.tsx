@@ -1,13 +1,10 @@
 import { useCallback, useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate, useSearchParams } from "react-router-dom";
-import { authAPI } from "../../../apis";
 import encacap_logo from "../../../assets/images/encacap_logo.svg";
 import { setDocumentTitle } from "../../../common/helpers";
 import Button from "../../../components/Button";
 import Input from "../../../components/Input";
-import { AUTH_REDIRECT_DEFAULT_PATH } from "../../../constants/path";
-import { setTokens, setUser } from "../../user/userSlice";
 
 const Login = () => {
     const [username, setUsername] = useState("");
@@ -38,33 +35,33 @@ const Login = () => {
         setIsSubmitting(true);
         clearErrors();
 
-        authAPI
-            .loginWithEmailAndPassword(username, password)
-            .then((data) => {
-                const { user, tokens } = data;
-                dispatch(setUser(user));
-                dispatch(setTokens(tokens));
-                const redirectTo = searchParams.get("redirect") || AUTH_REDIRECT_DEFAULT_PATH;
-                navigate(redirectTo, {
-                    replace: true,
-                });
-            })
-            .catch((error) => {
-                const { response } = error;
-                if (response) {
-                    const { status } = response;
-                    if (status === 401) {
-                        setError(new Error("Email or password is incorrect."));
-                    } else if (status === 404) {
-                        setError(
-                            new Error(
-                                `User with email ${username} not found. Please contact your administrator to create an account.`
-                            )
-                        );
-                    }
-                }
-                setIsSubmitting(false);
-            });
+        // authAPI
+        //     .loginWithEmailAndPassword(username, password)
+        //     .then((data) => {
+        //         const { user, tokens } = data;
+        //         dispatch(setUser(user));
+        //         dispatch(setTokens(tokens));
+        //         const redirectTo = searchParams.get("redirect") || AUTH_REDIRECT_DEFAULT_PATH;
+        //         navigate(redirectTo, {
+        //             replace: true,
+        //         });
+        //     })
+        //     .catch((error) => {
+        //         const { response } = error;
+        //         if (response) {
+        //             const { status } = response;
+        //             if (status === 401) {
+        //                 setError(new Error("Email or password is incorrect."));
+        //             } else if (status === 404) {
+        //                 setError(
+        //                     new Error(
+        //                         `User with email ${username} not found. Please contact your administrator to create an account.`
+        //                     )
+        //                 );
+        //             }
+        //         }
+        //         setIsSubmitting(false);
+        //     });
     };
 
     useEffect(() => {
