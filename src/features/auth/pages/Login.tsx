@@ -4,6 +4,7 @@ import { useNavigate, useSearchParams } from "react-router-dom";
 import { authAPI } from "../../../apis";
 import encacap_logo from "../../../assets/images/encacap_logo.svg";
 import { setDocumentTitle } from "../../../common/helpers";
+import Alert from "../../../components/Alert";
 import Button from "../../../components/Button";
 import Input from "../../../components/Input";
 import { AUTH_REDIRECT_DEFAULT_PATH } from "../../../constants/path";
@@ -82,11 +83,7 @@ const Login = () => {
                     <div className="mt-1">Login with your Encacap account.</div>
                 </div>
                 <form className="mt-12" onSubmit={handleLogin}>
-                    {error && (
-                        <div className="p-4 mb-4 text-sm font-semibold text-red-500 border-2 border-red-500 rounded-xl bg-red-50">
-                            {error.message}
-                        </div>
-                    )}
+                    {error && <Alert title="Login Failed" message={error} type="error" className="mb-4" />}
                     <Input
                         type="email"
                         label="Username or email"
