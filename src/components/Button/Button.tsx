@@ -1,27 +1,43 @@
 import { twMerge } from "tailwind-merge";
 
-interface ButtonProps
-    extends React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> {
-    color?: "light" | "dark" | "primary" | "secondary" | "success" | "info" | "warning" | "danger" | "link";
+type Colors = "primary" | "light";
+
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+    color?: Colors;
     children?: React.ReactNode;
     isLoading?: boolean;
     icon?: React.ReactNode;
 }
 
 const Button = ({ className, color = "primary", icon, isLoading = false, children, ...otherProps }: ButtonProps) => {
+    const colorClassName = {
+        primary:
+            "border-encacap-500 hover:border-encacap-700 disabled:hover:border-gray-200 disabled:border-gray-200 text-white bg-encacap-500 hover:bg-encacap-700 disabled:bg-gray-200",
+        light: "border-gray-200 hover:border-gray-200 disabled:hover:border-gray-200 bg-gray-100 disabled:bg-gray-100 hover:bg-gray-200 disabled:opacity-50 text-black disabled:text-gray-500",
+    };
+    const spinnerColorClassName = {
+        primary: "border-white",
+        light: "border-gray-500",
+    };
+
     return (
         <button
             className={twMerge(
-                "px-4 py-2 font-semibold border-2 border-encacap-500 hover:border-encacap-700 disabled:hover:border-encacap-500 text-white rounded-xl bg-encacap-500 hover:bg-encacap-700 disabled:bg-encacap-500 duration-100 disabled:opacity-50 disabled:cursor-not-allowed",
-                color === "light" &&
-                    "border-gray-200 hover:border-gray-200 disabled:hover:border-gray-200 bg-gray-100 disabled:bg-gray-100 text-black hover:bg-gray-200 disabled:opacity-50",
+                "px-4 py-2 font-semibold border-2 rounded-xl duration-100 shadow-md shadow-gray-200",
+                colorClassName[color],
                 className,
                 "flex items-center justify-center"
             )}
             {...otherProps}
         >
             {isLoading && (
-                <div className="w-4 h-4 mb-px mr-3 border-2 border-white rounded-full animate-spin border-t-transparent"></div>
+                <div
+                    className={twMerge(
+                        "w-4 h-4 mb-px mr-3 border-2 rounded-full animate-spin",
+                        spinnerColorClassName[color],
+                        "border-t-transparent"
+                    )}
+                ></div>
             )}
             {icon && !isLoading && <div className="mr-3">{icon}</div>}
             {children}
