@@ -4,10 +4,6 @@
 
 @import "react-toastify/dist/ReactToastify.css";
 
-body {
-    @apply font-nunito;
-}
-
 .Toastify {
     &__toast {
         @apply p-0 border-2 border-gray-100 rounded-lg overflow-visible shadow-lg bg-white shadow-gray-100;
