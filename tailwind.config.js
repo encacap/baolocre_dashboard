@@ -1,4 +1,5 @@
 const defaultTheme = require("tailwindcss/defaultTheme");
+const colors = require("tailwindcss/colors");
 
 module.exports = {
     content: ["./src/**/*.{js,jsx,ts,tsx}"],
@@ -8,11 +9,7 @@ module.exports = {
                 nunito: ["Nunito", ...defaultTheme.fontFamily.sans],
             },
             colors: {
-                encacap: {
-                    300: "#C0FCF7",
-                    500: "#0CD4CC",
-                    700: "#009C96",
-                },
+                encacap: colors.blue,
             },
         },
     },
