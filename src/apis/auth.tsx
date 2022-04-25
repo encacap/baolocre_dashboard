@@ -1,5 +1,5 @@
 import axiosInstance from "../common/axiosInstance";
-import { AUTH as AUTH_PATHS } from "../constants/apiPaths";
+import { AUTH_PATH as AUTH_PATHS } from "../constants/apiPaths";
 
 const loginWithEmailAndPassword = async (email: string, password: string) => {
     const response = await axiosInstance.post(

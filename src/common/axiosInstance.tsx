@@ -1,5 +1,5 @@
 import axios, { AxiosInstance, AxiosRequestConfig } from "axios";
-import { AUTH } from "../constants/apiPaths";
+import { AUTH_PATH } from "../constants/apiPaths";
 import * as redirectPath from "../constants/redirectPaths";
 import { redirectTo } from "./helpers";
 import storage from "./storage";
@@ -48,7 +48,7 @@ const createAxiosInstance = () => {
                         }
                         try {
                             const { data } = await axios.post(
-                                AUTH.REFRESH_TOKEN,
+                                AUTH_PATH.REFRESH_TOKEN,
                                 {
                                     refreshToken: storage.get("tokens").refresh.token,
                                 },
