@@ -11,7 +11,7 @@ const Dashboard = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        if (!user || !user?.id) {
+        if (!user) {
             navigate("/auth/login");
         }
     }, [navigate, user]);

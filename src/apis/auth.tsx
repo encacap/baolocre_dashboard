@@ -13,7 +13,7 @@ const loginWithEmailAndPassword = async (email: string, password: string) => {
             notRedirectWhenError: true,
         }
     );
-    return response.data;
+    return response.data.data;
 };
 
 export { loginWithEmailAndPassword };

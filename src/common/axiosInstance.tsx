@@ -47,7 +47,9 @@ const createAxiosInstance = () => {
                             return Promise.reject(error);
                         }
                         try {
-                            const { data } = await axios.post(
+                            const {
+                                data: { data: newTokens },
+                            } = await axios.post(
                                 AUTH_PATH.REFRESH_TOKEN,
                                 {
                                     refreshToken: storage.get("tokens").refresh.token,
@@ -57,9 +59,9 @@ const createAxiosInstance = () => {
                                     autoRefreshToken: false,
                                 }
                             );
-                            storage.set("tokens", data);
-                            instance.defaults.headers.common.Authorization = `Bearer ${data.access.token}`;
-                            config.headers.Authorization = `Bearer ${data.access.token}`;
+                            storage.set("tokens", newTokens);
+                            instance.defaults.headers.common.Authorization = `Bearer ${newTokens.access.token}`;
+                            config.headers.Authorization = `Bearer ${newTokens.access.token}`;
                             return instance(config);
                         } catch (refreshError) {
                             return Promise.reject(refreshError);
