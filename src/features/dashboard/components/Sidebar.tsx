@@ -25,7 +25,7 @@ const Sidebar = ({ children }: SidebarProps) => {
                     <img src={encacapLogoImg} alt="Encacap Logo" className="h-full" />
                 </div>
             </div>
-            <div className="relative px-8 mt-12 mb-14">
+            <div className="relative px-8 mt-8 mb-14">
                 {Children.map(children, (child) => {
                     return React.cloneElement(child as React.ReactElement, {
                         active: pathname === child.props.to,
