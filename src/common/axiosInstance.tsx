@@ -1,5 +1,5 @@
 import axios, { AxiosInstance, AxiosRequestConfig } from "axios";
-import * as redirectPath from "../constants/path";
+import * as redirectPath from "../constants/paths";
 import { redirectTo } from "./helpers";
 import storage from "./storage";
 
@@ -88,3 +88,4 @@ const createAxiosInstance = () => {
 const instance = createAxiosInstance();
 
 export default instance;
+
