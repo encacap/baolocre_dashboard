@@ -2,7 +2,7 @@
     "env": {
         "commonjs": true,
         "es2021": true,
-        "node": true
+        "browser": true
     },
     "globals": {
         "NodeJS": true
@@ -49,5 +49,13 @@
                 "args": "none"
             }
         ]
-    }
+    },
+    "overrides": [
+        {
+            "files": ["*.tsx"],
+            "rules": {
+                "no-undef": "off"
+            }
+        }
+    ]
 }
