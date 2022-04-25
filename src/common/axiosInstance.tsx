@@ -1,5 +1,5 @@
 import axios, { AxiosInstance, AxiosRequestConfig } from "axios";
-import * as redirectPath from "../constants/paths";
+import * as redirectPath from "../constants/redirectPaths";
 import { redirectTo } from "./helpers";
 import storage from "./storage";
 

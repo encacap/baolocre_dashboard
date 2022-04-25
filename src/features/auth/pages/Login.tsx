@@ -7,7 +7,7 @@ import { setDocumentTitle } from "../../../common/helpers";
 import Alert from "../../../components/Alert";
 import Button from "../../../components/Button";
 import Input from "../../../components/Input";
-import { AUTH_REDIRECT_DEFAULT_PATH } from "../../../constants/paths";
+import { AUTH_REDIRECT_DEFAULT_PATH } from "../../../constants/redirectPaths";
 import { setTokens, setUser } from "../../user/userSlice";
 
 const Login = () => {
