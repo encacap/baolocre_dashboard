@@ -1,5 +1,5 @@
 import "lazysizes";
-import "lazysizes/plugins/parent-fit/ls.parent-fit";
+import "lazysizes/plugins/parent-fit/ls.parent-fit.js";
 import React, { Suspense } from "react";
 import { ToastContainer } from "react-toastify";
 import CommonRoutes from "./app/routes/CommonRoutes";

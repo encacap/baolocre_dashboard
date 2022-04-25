@@ -19,7 +19,7 @@ const ToastIcon = ({ className, type, ...otherProps }: ToastIconProps) => {
         default: <Information />,
     };
 
-    const selectedIcon = icon[type] || icon["default"];
+    const selectedIcon = icon[type] || icon.default;
 
     return (
         <>

@@ -88,4 +88,3 @@ const createAxiosInstance = () => {
 const instance = createAxiosInstance();
 
 export default instance;
-

@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom";
-import Auth from "../../features/auth";
-import Dashboard from "../../features/dashboard";
+import Auth from "../../features/auth/Auth";
+import Dashboard from "../../features/dashboard/Dashboard";
 
 const CommonRoutes = () => {
     return (

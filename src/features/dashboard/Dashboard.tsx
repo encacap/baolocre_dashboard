@@ -13,7 +13,6 @@ const Dashboard = () => {
     useEffect(() => {
         if (!user || !user?.id) {
             navigate("/auth/login");
-            return;
         }
     }, [navigate, user]);
 

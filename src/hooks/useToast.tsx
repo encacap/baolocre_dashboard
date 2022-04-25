@@ -1,5 +1,6 @@
+import React from "react";
 import { toast, ToastOptions } from "react-toastify";
-import ToastMessage from "../components/ToastMessage";
+import ToastMessage from "../components/ToastMessage/ToastMessage";
 
 type Type = "info" | "success" | "warning" | "error" | "loading";
 

@@ -2,11 +2,9 @@ import { useCallback, useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { authAPI } from "../../../apis";
-import encacap_logo from "../../../assets/images/encacap_logo.svg";
+import encacapLogo from "../../../assets/images/encacap_logo.svg";
 import { setDocumentTitle } from "../../../common/helpers";
-import Alert from "../../../components/Alert";
-import Button from "../../../components/Button";
-import Input from "../../../components/Input";
+import { Alert, Button, Input } from "../../../components";
 import { AUTH_REDIRECT_DEFAULT_PATH } from "../../../constants/redirectPaths";
 import { setTokens, setUser } from "../../user/userSlice";
 
@@ -50,8 +48,8 @@ const Login = () => {
                     replace: true,
                 });
             })
-            .catch((error) => {
-                const { response } = error;
+            .catch((err) => {
+                const { response } = err;
                 if (response) {
                     const { status } = response;
                     if (status === 401) {
@@ -77,7 +75,7 @@ const Login = () => {
     return (
         <div className="w-full max-w-lg p-12 m-auto border-2 border-gray-100 rounded-3xl">
             <div>
-                <img src={encacap_logo} className="mx-auto w-14" alt="Encacap Logo" />
+                <img src={encacapLogo} className="mx-auto w-14" alt="Encacap Logo" />
                 <div className="text-center mt-7">
                     <div className="text-2xl font-semibold">Hi. Welcome back!</div>
                     <div className="mt-1">Login with your Encacap account.</div>
@@ -119,4 +117,3 @@ const Login = () => {
 };
 
 export default Login;
-

@@ -41,4 +41,3 @@ const Sidebar = ({ children }: SidebarProps) => {
 };
 
 export default Sidebar;
-
